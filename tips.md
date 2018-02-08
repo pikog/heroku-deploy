@@ -10,6 +10,7 @@ This is just a quick memo for me.
     - [Node.js version](#nodejs-version)
     - [Deploy commands](#deploy-commands)
     - [Environment variables](#environment-variables)
+        - [in local](#in-local)
 
 ## Port for Heroku
 
@@ -91,6 +92,16 @@ heroku config:set GMAPS_KEY=mysecretkey
 ```
 
 We can list all variables with `heroku config`
+
+### in local
+
+To use environment variables in local we need [dotenv](https://www.npmjs.com/package/dotenv) package as devDepedencie and init with
+
+```javascript
+require('dotenv').config()
+```
+
+We can also run Heroku in local with `heroku local` to use environment variables defined on Heroku
 
 
 
