@@ -11,6 +11,7 @@ This is just a quick memo for me.
     - [Deploy commands](#deploy-commands)
     - [Environment variables](#environment-variables)
         - [in local](#in-local)
+    - [Disable production mode](#disable-production-mode)
 
 ## Port for Heroku
 
@@ -103,5 +104,10 @@ require('dotenv').config()
 
 We can also run Heroku in local with `heroku local` to use environment variables defined on Heroku
 
+## Disable production mode
 
+To disable production mode on Heroku and avoid to load devDepencies we used
 
+```bash
+heroku config:set NPM_CONFIG_PRODUCTION=false
+```
