@@ -6,7 +6,7 @@ const hbs = require('hbs')
 const app = express()
 
 //Port for Heroku
-const PORT = process.env.PORT || 8080
+app.set('port', (process.env.PORT || 8080))
 
 //Express configuration
 app.set('view engine', 'hbs')
@@ -16,11 +16,11 @@ app.use('/static', express.static(__dirname + '/public'))
 //Main route
 app.get('/', (req, res) =>
 {
-    res.render('pages/home.hbs', { port: PORT })
+    res.render('pages/home.hbs', { port: app.get('port') })
 })
 
 //Listen on heroku port
-app.listen(PORT, () =>
+app.listen(app.get('port'), () =>
 {
-    console.log(`App started on port ${PORT}`)
+    console.log(`App started on port ${app.get('port')}`)
 })
