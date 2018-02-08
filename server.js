@@ -16,7 +16,10 @@ app.use('/static', express.static(__dirname + '/public'))
 //Main route
 app.get('/', (req, res) =>
 {
-    res.render('pages/home.hbs', { port: app.get('port') })
+    res.render('pages/home.hbs', { 
+        port: app.get('port'),
+        gmaps_key: process.env.GMAPS_KEY
+    })
 })
 
 //Listen on heroku port
