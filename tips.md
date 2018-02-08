@@ -8,6 +8,8 @@ This is just a quick memo for me.
     - [Port for Heroku](#port-for-heroku)
     - [Procfile](#procfile)
     - [Node.js version](#nodejs-version)
+    - [Deploy commands](#deploy-commands)
+    - [Environment variables](#environment-variables)
 
 ## Port for Heroku
 
@@ -49,3 +51,46 @@ We need to specify the version of node.js in `package.json`.
     "node": "9.4.0"
 }
 ```
+
+## Deploy commands
+
+First, create Heroku container && Heroku branch
+
+```bash
+heroku create
+```
+
+Then, push the master branch on Heroku
+
+```bash
+git push heroku master
+```
+
+That's it ! We can go on our Heroku app with
+
+```bash
+heroku open
+```
+
+## Environment variables
+
+We stocks our enbironment variables like API key in the file `.env`
+
+```text
+GMAPS_KEY=mysecretkey
+```
+
+We used this variable with `process.env.GMAPS_KEY`
+
+The file `.env` is in `.gitignore` beacuse we don't want to push our secret key on Github.
+
+To specify environment variables for Heroku we can go on our [dashboard](https://dashboard.heroku.com) or used
+
+```bash
+heroku config:set GMAPS_KEY=mysecretkey
+```
+
+We can list all variables with `heroku config`
+
+
+
