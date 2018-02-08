@@ -2,6 +2,9 @@
 const express = require('express')
 const hbs = require('hbs')
 
+//Using .env
+require('dotenv').config()
+
 //Init express
 const app = express()
 
